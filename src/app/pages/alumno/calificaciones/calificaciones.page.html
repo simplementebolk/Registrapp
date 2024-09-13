@@ -1,0 +1,171 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center" style="font-size: 24px;">
+      <span style="color: black;">registr</span><span style="color: #FFD700;">APP</span> - Calificaciones
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-accordion-group>
+    <ion-accordion value="1">
+      <ion-item slot="header" color="light">
+        <ion-label>Calidad de Software</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ion-item>
+          <ion-label>Evaluación 1</ion-label>
+          <ion-note slot="end">{{ calificaciones['calidadSoftware'].evaluacion1 }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>Evaluación 2</ion-label>
+          <ion-note slot="end">{{ calificaciones['calidadSoftware'].evaluacion2 }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>Evaluación 3</ion-label>
+          <ion-note slot="end">{{ calificaciones['calidadSoftware'].evaluacion3 }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>Examen</ion-label>
+          <ion-note slot="end">{{ calificaciones['calidadSoftware'].examen }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>Promedio Presentación</ion-label>
+          <ion-note slot="end">{{ promedioPresentacion('calidadSoftware') }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>Promedio Final</ion-label>
+          <ion-note slot="end">{{ promedioFinal('calidadSoftware') }}</ion-note>
+        </ion-item>
+      </div>
+    </ion-accordion>
+
+    <ion-accordion value="2">
+      <ion-item slot="header" color="light">
+        <ion-label>Aplicaciones Móviles</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ion-item>
+          <ion-label>Evaluación 1</ion-label>
+          <ion-note slot="end">{{ calificaciones['aplicacionesMoviles'].evaluacion1 }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>Evaluación 2</ion-label>
+          <ion-note slot="end">{{ calificaciones['aplicacionesMoviles'].evaluacion2 }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>Evaluación 3</ion-label>
+          <ion-note slot="end">{{ calificaciones['aplicacionesMoviles'].evaluacion3 }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>Examen</ion-label>
+          <ion-note slot="end">{{ calificaciones['aplicacionesMoviles'].examen }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>Promedio Presentación</ion-label>
+          <ion-note slot="end">{{ promedioPresentacion('aplicacionesMoviles') }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>Promedio Final</ion-label>
+          <ion-note slot="end">{{ promedioFinal('aplicacionesMoviles') }}</ion-note>
+        </ion-item>
+      </div>
+    </ion-accordion>
+
+    <ion-accordion value="3">
+      <ion-item slot="header" color="light">
+        <ion-label>Arquitectura</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ion-item>
+          <ion-label>Evaluación 1</ion-label>
+          <ion-note slot="end">{{ calificaciones['arquitectura'].evaluacion1 }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>Evaluación 2</ion-label>
+          <ion-note slot="end">{{ calificaciones['arquitectura'].evaluacion2 }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>Evaluación 3</ion-label>
+          <ion-note slot="end">{{ calificaciones['arquitectura'].evaluacion3 }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>Examen</ion-label>
+          <ion-note slot="end">{{ calificaciones['arquitectura'].examen }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>Promedio Presentación</ion-label>
+          <ion-note slot="end">{{ promedioPresentacion('arquitectura') }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>Promedio Final</ion-label>
+          <ion-note slot="end">{{ promedioFinal('arquitectura') }}</ion-note>
+        </ion-item>
+      </div>
+    </ion-accordion>
+
+    <ion-accordion value="4">
+      <ion-item slot="header" color="light">
+        <ion-label>Inglés Intermedio</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ion-item>
+          <ion-label>Evaluación 1</ion-label>
+          <ion-note slot="end">{{ calificaciones['inglesIntermedio'].evaluacion1 }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>Evaluación 2</ion-label>
+          <ion-note slot="end">{{ calificaciones['inglesIntermedio'].evaluacion2 }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>Evaluación 3</ion-label>
+          <ion-note slot="end">{{ calificaciones['inglesIntermedio'].evaluacion3 }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>Examen</ion-label>
+          <ion-note slot="end">{{ calificaciones['inglesIntermedio'].examen }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>Promedio Presentación</ion-label>
+          <ion-note slot="end">{{ promedioPresentacion('inglesIntermedio') }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>Promedio Final</ion-label>
+          <ion-note slot="end">{{ promedioFinal('inglesIntermedio') }}</ion-note>
+        </ion-item>
+      </div>
+    </ion-accordion>
+
+    <ion-accordion value="5">
+      <ion-item slot="header" color="light">
+        <ion-label>Estadística Descriptiva</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ion-item>
+          <ion-label>Evaluación 1</ion-label>
+          <ion-note slot="end">{{ calificaciones['estadisticaDescriptiva'].evaluacion1 }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>Evaluación 2</ion-label>
+          <ion-note slot="end">{{ calificaciones['estadisticaDescriptiva'].evaluacion2 }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>Evaluación 3</ion-label>
+          <ion-note slot="end">{{ calificaciones['estadisticaDescriptiva'].evaluacion3 }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>Examen</ion-label>
+          <ion-note slot="end">{{ calificaciones['estadisticaDescriptiva'].examen }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>Promedio Presentación</ion-label>
+          <ion-note slot="end">{{ promedioPresentacion('estadisticaDescriptiva') }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>Promedio Final</ion-label>
+          <ion-note slot="end">{{ promedioFinal('estadisticaDescriptiva') }}</ion-note>
+        </ion-item>
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
+</ion-content>

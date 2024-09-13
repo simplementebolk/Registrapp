@@ -1,0 +1,48 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 20px;
+  }
+  
+  .img-container {
+    margin-bottom: 20px;
+  }
+  
+  ion-img {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .custom-input {
+    --background: #ffeb3b;
+  }
+  
+  ion-label {
+    --color: #000;
+  }
+  
+  .forgot-password {
+    color: #007bff;
+    text-decoration: underline;
+  }
+  
+  .forgot-password:hover {
+    color: #0056b3;
+  }
+  
+  ion-button {
+    --background: #007bff;
+    --color: #fff;
+  }
+  
+  .app-title {
+    font-size: 48px;
+    font-weight: bold;
+  }
+  
+  .highlight {
+    color: yellow;
+  }

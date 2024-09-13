@@ -1,0 +1,106 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center" style="font-size: 24px;">
+      <span style="color: black;">registr</span><span style="color: #FFD700;">APP</span> - Asistencia
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-accordion-group expand="inset">
+    <!-- Acordeón para Calidad de Software -->
+    <ion-accordion value="1">
+      <ion-item slot="header" color="light">
+        <ion-label>Calidad de Software</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ion-list>
+          <ion-item *ngFor="let clase of calidadSoftware">
+            <ion-label>
+              {{ clase.fecha | date: 'fullDate' }}
+            </ion-label>
+            <ion-label slot="end" [color]="clase.asistencia === 'Presente' ? 'success' : 'danger'">
+              {{ clase.asistencia }}
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </div>
+    </ion-accordion>
+
+    <!-- Acordeón para Aplicaciones Móviles -->
+    <ion-accordion value="2">
+      <ion-item slot="header" color="light">
+        <ion-label>Aplicaciones Móviles</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ion-list>
+          <ion-item *ngFor="let clase of aplicacionesMoviles">
+            <ion-label>
+              {{ clase.fecha | date: 'fullDate' }}
+            </ion-label>
+            <ion-label slot="end" [color]="clase.asistencia === 'Presente' ? 'success' : 'danger'">
+              {{ clase.asistencia }}
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </div>
+    </ion-accordion>
+
+    <!-- Acordeón para Arquitectura -->
+    <ion-accordion value="3">
+      <ion-item slot="header" color="light">
+        <ion-label>Arquitectura</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ion-list>
+          <ion-item *ngFor="let clase of arquitectura">
+            <ion-label>
+              {{ clase.fecha | date: 'fullDate' }}
+            </ion-label>
+            <ion-label slot="end" [color]="clase.asistencia === 'Presente' ? 'success' : 'danger'">
+              {{ clase.asistencia }}
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </div>
+    </ion-accordion>
+
+    <!-- Acordeón para Inglés Intermedio -->
+    <ion-accordion value="4">
+      <ion-item slot="header" color="light">
+        <ion-label>Inglés Intermedio</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ion-list>
+          <ion-item *ngFor="let clase of inglesIntermedio">
+            <ion-label>
+              {{ clase.fecha | date: 'fullDate' }}
+            </ion-label>
+            <ion-label slot="end" [color]="clase.asistencia === 'Presente' ? 'success' : 'danger'">
+              {{ clase.asistencia }}
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </div>
+    </ion-accordion>
+
+    <!-- Acordeón para Estadística Descriptiva -->
+    <ion-accordion value="5">
+      <ion-item slot="header" color="light">
+        <ion-label>Estadística Descriptiva</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ion-list>
+          <ion-item *ngFor="let clase of estadisticaDescriptiva">
+            <ion-label>
+              {{ clase.fecha | date: 'fullDate' }}
+            </ion-label>
+            <ion-label slot="end" [color]="clase.asistencia === 'Presente' ? 'success' : 'danger'">
+              {{ clase.asistencia }}
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
+</ion-content>

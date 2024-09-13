@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center" style="font-size: 24px;">
+      <span style="color: black;">registr</span><span style="color: #FFD700;">APP</span> - Generar QR
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="qr-container">
+    <img src="/assets/img/qr.png" alt="QR Code">
+  </div>
+  <div class="timer-container">
+    <ion-label id="timer">10</ion-label>
+  </div>
+  <ion-button expand="full" (click)="cancelar()" class="custom-button">Cancelar</ion-button>
+</ion-content>

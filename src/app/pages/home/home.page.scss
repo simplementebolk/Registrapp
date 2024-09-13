@@ -25,3 +25,13 @@
 #container a {
   text-decoration: none;
 }
+
+.custom-button {
+  --background: black;
+  --color: white;
+  --background-activated: #333;
+}
+
+.spaced-button {
+  margin: 10px 0;
+}

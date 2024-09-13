@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center" style="font-size: 24px;">
+      <span style="color: black;">registr</span><span style="color: #FFD700;">APP</span>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-button expand="block" class="custom-button" style="margin: auto; margin-top:10px;" (click)="generarqr()">
+    Generar QR
+  </ion-button>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>Alumno</ion-col>
+      <ion-col>Estado</ion-col>
+      <ion-col>Fecha</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>Juan Caceres</ion-col>
+      <ion-col>
+        <ion-checkbox></ion-checkbox>
+      </ion-col>
+      <ion-col>
+        <ion-input type="text" value="12/02/2024" readonly></ion-input>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
