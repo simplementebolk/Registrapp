@@ -16,7 +16,7 @@
 }
 
 #container strong {
-  font-size: 32px;  /* Aumentar tamaño del título */
+  font-size: 32px;  
   line-height: 40px;
   font-weight: bold;
   color: transparent;
@@ -56,7 +56,7 @@
 }
 
 .custom-button {
-  --background: #007bff;
+  --background:none;
   --color: white;
   --background-activated: #0056b3;
   border-radius: 50px;
@@ -70,7 +70,7 @@
 }
 
 .custom-button:hover {
-  background-color: #0056b3;
+  background-color: #000000;
   transform: translateY(-4px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
@@ -87,13 +87,13 @@
 
 #profile-container {
   display: flex;
-  justify-content: space-evenly;  /* Cambiar a 'space-evenly' para mayor separación */
-  gap: 30px;  /* Aumentar el espacio entre los círculos */
-  margin-bottom: 40px;  /* Aumentar el margen inferior */
+  justify-content: space-evenly;  
+  gap: 30px;  
+  margin-bottom: 40px;  
 }
 
 .profile-circle {
-  width: 100px;  /* Aumentar el tamaño de los círculos */
+  width: 100px; 
   height: 100px;
   background-color: #007bff;
   border-radius: 50%;
@@ -109,21 +109,21 @@
 }
 
 .profile-circle img {
-  width: 60px;  /* Aumentar el tamaño de la imagen dentro del círculo */
+  width: 60px;  
   height: 60px;
   border-radius: 50%;
 }
 
 .welcome-message {
-  font-size: 18px;  /* Ajuste del tamaño de la fuente */
+  font-size: 18px;  
   font-weight: bold;
   color: #ffeb3b;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  margin-top: 40px;  /* Aumentar el margen superior */
+  margin-top: 40px;  
   transition: transform 0.3s ease-in-out;
   opacity: 0;
-  animation: fadeInUp 1.5s ease-out forwards; /* Animación de entrada */
+  animation: fadeInUp 1.5s ease-out forwards; 
 }
 
 .welcome-message:hover {
@@ -150,4 +150,7 @@
     opacity: 1;
     transform: translateX(0);
   }
+}
+ion-content {
+  --background: linear-gradient(to bottom, #000000e8, #d9db3a);
 }

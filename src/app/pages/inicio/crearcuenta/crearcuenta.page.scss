@@ -1,9 +1,9 @@
-/* Título Registrapp con gradiente y animaciones */
+
 .app-title {
     font-size: 40px;
     font-weight: bold;
     text-align: center;
-    color: transparent; /* Hace que el texto sea transparente para que se vea el gradiente */
+    color: transparent; 
     margin-top: 30px;
     padding-bottom: 30px;
     opacity: 0;
@@ -12,20 +12,20 @@
   }
   
   .app-title::before {
-    content: "Registrapp"; /* El texto que se va a mostrar */
+    content: "Registrapp"; 
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     background: linear-gradient(to right, #000 50%, #ffeb3b 50%);
-    -webkit-background-clip: text; /* Asegura que el fondo solo se aplique al texto */
-    background-clip: text; /* Propiedad estándar */
-    color: transparent; /* Hace que el color de fondo se muestre */
-    z-index: -1; /* Coloca el gradiente detrás del texto */
+    -webkit-background-clip: text; 
+    background-clip: text; 
+    color: transparent; 
+    z-index: -1; 
   }
   
-  /* Animación para que el título se desplace y aparezca */
+
   @keyframes fadeInUp {
     0% {
       opacity: 0;
@@ -42,7 +42,7 @@
   }
 
 
-/* Contenedor principal */
+
 .register-container {
     display: flex;
     justify-content: center;
@@ -53,7 +53,7 @@
     box-sizing: border-box;
   }
   
-  /* Estilo del ion-list */
+
   ion-list {
     width: 100%;
     max-width: 450px;
@@ -65,13 +65,13 @@
     margin: 0 auto;
   }
   
-  /* Estilo de los ion-item (inputs) */
+
   ion-item {
     --background: #fdfdfd;
     --border-color: #ddd;
     --padding-start: 16px;
     --padding-end: 16px;
-    margin-bottom: 25px;  /* Aseguramos que haya suficiente espacio entre los items */
+    margin-bottom: 25px;  
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
     display: flex;
@@ -79,13 +79,13 @@
     position: relative;
   }
   
-  /* Estilo de los ion-label (títulos) */
+
   ion-label {
     font-size: 1rem;
     color: #333;
-    margin-bottom: 5px;  /* Menor margen entre label y input */
+    margin-bottom: 5px;  
     position: absolute;
-    top: -10px; /* Posiciona el label por encima del input */
+    top: -10px; 
     left: 16px;
     background-color: #fff;
     padding: 0 5px;
@@ -93,7 +93,7 @@
     z-index: 1;
   }
   
-  /* Estilo de los ion-input */
+
   ion-input {
     --padding-start: 20px;
     --padding-end: 20px;
@@ -101,23 +101,22 @@
     --border-radius: 12px;
     --border-color: #ffb300;
     --box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    height: 45px;  /* Ajuste de la altura de los inputs */
-    padding-top: 14px; /* Para hacer espacio para el label flotante */
-    font-size: 1rem; /* Ajuste de tamaño de texto */
+    height: 45px;  
+    padding-top: 14px; 
+    font-size: 1rem; 
   }
   
-  /* Ajustes en el ion-select */
+
   ion-select {
     --background: #ffeb3b;
     --border-radius: 12px;
     --border-color: #ffb300;
     --box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     padding: 10px 20px;
-    height: 45px;  /* Ajuste de la altura del select */
+    height: 45px;  
     margin-bottom: 20px;
   }
-  
-  /* Estilo de ion-button */
+
   ion-button {
     --background: #007bff;
     --color: white;
@@ -141,12 +140,12 @@
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
   }
   
-  /* Sombra sutil en el fondo */
+
   .register-container {
     background: linear-gradient(to bottom, #000, #ffeb3b);
   }
   
-  /* Animación para el contenedor */
+
   @keyframes fadeIn {
     0% {
       opacity: 0;
