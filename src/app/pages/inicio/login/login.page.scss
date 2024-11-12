@@ -1,52 +1,162 @@
-.login-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    padding: 20px;
-  }
-  
-  .img-container {
-    margin-bottom: 20px;
-  }
-  
-  ion-img {
-    width: 150px;
-    height: 150px;
-  }
-  
-  .custom-input {
-    --background: #ffeb3b;
-  }
-  
-  ion-label {
-    --color: #000;
-  }
-  
-  .forgot-password {
-    color: #007bff;
-    text-decoration: underline;
-  }
-  
-  .forgot-password:hover {
-    color: #0056b3;
-  }
-  
-  ion-button {
-    --background: #007bff;
-    --color: #fff;
-  }
-  
-  .app-title {
-    font-size: 47px;
-    font-weight: bold;
-  }
-  
-  .highlight {
-    color: yellow;
-  }
 
-  .body{
-    background-color: #000;
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #fdfdfd;
+  padding: 20px;
+  overflow: hidden;
+}
+
+
+.login-box-wrapper {
+  border: 3px solid #ddd;
+  padding: 30px;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.15);
+  max-width: 400px;
+  width: 100%;
+  text-align: center; 
+}
+
+
+.img-container {
+  margin: 0 auto 20px;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 50%;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-container {
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.input-icon {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #ffb300;
+}
+
+.custom-input {
+  --background: #ffeb3b;
+  padding: 12px 20px 12px 45px;
+  border-radius: 12px;
+  width: 100%;
+  border: 2px solid #ffb300;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.custom-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0px 4px 12px rgba(0, 123, 255, 0.5);
+}
+
+
+.centered-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40%;
+  width: 100%;
+  margin-top: 1000px; 
+}
+
+.centered-button ion-button {
+  width: 80%;
+  --background: #007bff;
+  --color: #fff;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 14px 0;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  display: block;
+  text-align: center;
+}
+
+.centered-button ion-button:hover {
+  --background: #0056b3;
+  transform: translateY(-4px);
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.centered-button ion-button:active {
+  transform: translateY(-2px);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.app-title {
+  position: relative;
+  font-size: 40px;
+  font-weight: bold;
+  margin-top: 30px;
+  padding-bottom: 30px;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInUp 1.2s ease-out forwards;
+  color: transparent; 
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.app-title::before {
+  content: "Registrapp"; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to right, #000 50%, #ffeb3b 50%);
+  -webkit-background-clip: text; 
+  background-clip: text; 
+  color: transparent; 
+  z-index: -1; 
+}
+
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
   }
+  50% {
+    opacity: 0.7;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.forgot-password, .create-account {
+  color: #007bff;
+  text-decoration: underline;
+  font-size: 1em;
+  margin-top: 10px;
+  cursor: pointer;
+  text-align: center;
+  display: block;
+}
+
+.forgot-password:hover, .create-account:hover {
+  color: #606d7a;
+  text-decoration: none;
+}
