@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Crud Persona</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div style="padding: 30px">
+    <h2>Grabar Persona</h2>
+    <ion-input [(ngModel)]="persona.nombre" label="Nombre" placeholder="Ingrese nombre"></ion-input>
+    <ion-input [(ngModel)]="persona.apellido" label="Apellido" placeholder="Ingrese apellido"></ion-input>
+    <ion-input [(ngModel)]="persona.correo" label="Correo" placeholder="Ingrese correo"></ion-input>
+    <ion-input [(ngModel)]="persona.tipo_usuario" label="Tipo Usuario" placeholder="Ingrese tipo de usuario"></ion-input>
+    <ion-button (click)="grabar()">Grabar</ion-button>
+  </div>
+
+  <div style="padding: 30px">
+    <h2>Modificar Persona</h2>
+    <ion-input [(ngModel)]="nueva_persona.nombre" label="Nombre" placeholder="Ingrese nombre"></ion-input>
+    <ion-input [(ngModel)]="nueva_persona.apellido" label="Apellido" placeholder="Ingrese apellido"></ion-input>
+    <ion-input [(ngModel)]="nueva_persona.correo" label="Correo" placeholder="Ingrese correo"></ion-input>
+    <ion-input [(ngModel)]="nueva_persona.tipo_usuario" label="Tipo Usuario" placeholder="Ingrese tipo de usuario"></ion-input>
+    <ion-button (click)="modificarPersona()">Actualizar</ion-button>
+  </div>
+
+  <div style="padding: 30px;">
+    <h2>Listado Personas</h2>
+    <ion-grid>
+      <ion-row *ngFor="let perso of lista_personas">
+        <ion-col>{{perso.nombre}} {{perso.apellido}}</ion-col>
+        <ion-col>{{perso.correo}}</ion-col>
+        <ion-col>{{perso.tipo_usuario}}</ion-col>
+        <ion-col>
+          <ion-button (click)="eliminar(perso.id)">Eliminar</ion-button>
+          <ion-button (click)="modificar(perso)">Modificar</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

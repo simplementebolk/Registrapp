@@ -7,7 +7,7 @@
     <ion-list>
       <ion-item>
         <ion-label position="floating">Ingrese su usuario</ion-label>
-        <ion-input placeholder="Ingrese nombre de usuario" [(ngModel)]="nombre" class="custom-input"></ion-input>
+        <ion-input placeholder="Ingrese nombre de usuario" [(ngModel)]="email" class="custom-input"></ion-input>
       </ion-item>
 
       <ion-item>
@@ -17,12 +17,18 @@
 
       <ion-item lines="none">
         <ion-label>
+          <a routerLink="/crearcuenta" class="forgot-password">Crear Cuenta</a>
+        </ion-label>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-label>
           <a routerLink="/olvide-contrasena" class="forgot-password">Olvidé mi contraseña</a>
         </ion-label>
       </ion-item>
 
       <ion-item>
-        <ion-button expand="full" (click)="validar()">Continuar</ion-button>
+        <ion-button expand="full" (click)="login()">Continuar</ion-button>
       </ion-item>
 
       <div class="app-title">
@@ -30,4 +36,5 @@
        </div>
     </ion-list>
   </div>
+
 </ion-content>

@@ -76,6 +76,14 @@ const routes: Routes = [
     path: 'cursos',
     loadChildren: () => import('./pages/profesor/cursos/cursos.module').then( m => m.CursosPageModule)
   },
+  {
+    path: 'crudpersona',
+    loadChildren: () => import('./pages/crudpersona/crudpersona.module').then( m => m.CrudpersonaPageModule)
+  },
+  {
+    path: '**',
+    loadChildren: () => import('./pages/notfound/notfound.module').then( m => m.NotfoundPageModule)
+  },
 ];
 
 @NgModule({
