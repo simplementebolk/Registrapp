@@ -1,4 +1,9 @@
 <ion-content [fullscreen]="true">
+  <!-- Título Registrapp -->
+  <div class="app-title">
+    Registrapp
+  </div>
+
   <div class="register-container">
     <ion-list>
       <ion-item>
@@ -22,8 +27,7 @@
       </ion-item>
 
       <ion-item>
-        <ion-label position="floating">Tipo de Usuario</ion-label>
-        <ion-select [(ngModel)]="tipo_usuario">
+        <ion-select [(ngModel)]="tipo_usuario" placeholder="Seleccione el tipo de usuario">
           <ion-select-option value="alumno">Alumno</ion-select-option>
           <ion-select-option value="profesor">Profesor</ion-select-option>
         </ion-select>

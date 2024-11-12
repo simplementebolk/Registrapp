@@ -1,0 +1,164 @@
+/* Título Registrapp con gradiente y animaciones */
+.app-title {
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    color: transparent; /* Hace que el texto sea transparente para que se vea el gradiente */
+    margin-top: 30px;
+    padding-bottom: 30px;
+    opacity: 0;
+    animation: fadeInUp 1.2s ease-out forwards;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .app-title::before {
+    content: "Registrapp"; /* El texto que se va a mostrar */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, #000 50%, #ffeb3b 50%);
+    -webkit-background-clip: text; /* Asegura que el fondo solo se aplique al texto */
+    background-clip: text; /* Propiedad estándar */
+    color: transparent; /* Hace que el color de fondo se muestre */
+    z-index: -1; /* Coloca el gradiente detrás del texto */
+  }
+  
+  /* Animación para que el título se desplace y aparezca */
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    50% {
+      opacity: 0.7;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+
+/* Contenedor principal */
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background: linear-gradient(to bottom, #000, #ffeb3b);
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  /* Estilo del ion-list */
+  ion-list {
+    width: 100%;
+    max-width: 450px;
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+    margin: 0 auto;
+  }
+  
+  /* Estilo de los ion-item (inputs) */
+  ion-item {
+    --background: #fdfdfd;
+    --border-color: #ddd;
+    --padding-start: 16px;
+    --padding-end: 16px;
+    margin-bottom: 25px;  /* Aseguramos que haya suficiente espacio entre los items */
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  
+  /* Estilo de los ion-label (títulos) */
+  ion-label {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 5px;  /* Menor margen entre label y input */
+    position: absolute;
+    top: -10px; /* Posiciona el label por encima del input */
+    left: 16px;
+    background-color: #fff;
+    padding: 0 5px;
+    font-weight: bold;
+    z-index: 1;
+  }
+  
+  /* Estilo de los ion-input */
+  ion-input {
+    --padding-start: 20px;
+    --padding-end: 20px;
+    --background: #ffeb3b;
+    --border-radius: 12px;
+    --border-color: #ffb300;
+    --box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    height: 45px;  /* Ajuste de la altura de los inputs */
+    padding-top: 14px; /* Para hacer espacio para el label flotante */
+    font-size: 1rem; /* Ajuste de tamaño de texto */
+  }
+  
+  /* Ajustes en el ion-select */
+  ion-select {
+    --background: #ffeb3b;
+    --border-radius: 12px;
+    --border-color: #ffb300;
+    --box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    height: 45px;  /* Ajuste de la altura del select */
+    margin-bottom: 20px;
+  }
+  
+  /* Estilo de ion-button */
+  ion-button {
+    --background: #007bff;
+    --color: white;
+    --border-radius: 50px;
+    --box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 14px 0;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 20px;
+  }
+  
+  ion-button:hover {
+    --background: #0056b3;
+    transform: translateY(-4px);
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  ion-button:active {
+    transform: translateY(-2px);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Sombra sutil en el fondo */
+  .register-container {
+    background: linear-gradient(to bottom, #000, #ffeb3b);
+  }
+  
+  /* Animación para el contenedor */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .register-container {
+    animation: fadeIn 0.8s ease-out;
+  }
+  
