@@ -1,14 +1,14 @@
 ion-header {
-    background: transparent;  /* Asegurarse de que el fondo del header sea transparente */
+    background: transparent;  
     padding: 10px;
     box-shadow: none;
-    margin-bottom: 20px;  /* Separar el título del contenido */
+    margin-bottom: 20px;  
 }
 
 ion-title {
     background-color: transparent;
     font-family: 'Roboto', sans-serif;
-    font-size: 1%;  /* Reducir el tamaño del título */
+    font-size: 1%;  
     height: 0,5%;
     text-align: center;
     text-transform: uppercase;
@@ -16,7 +16,7 @@ ion-title {
     letter-spacing: 1.5px;
     line-height: 1.2;
     animation: fadeInUp 1.5s ease-out forwards;
-    padding: 0; /* Eliminar espacio adicional */
+    padding: 0; 
 }
 
 ion-title span:nth-child(1) {
@@ -29,17 +29,17 @@ ion-title span:nth-child(2) {
 
 ion-content {
     
-    padding: 0 10px; /* Añadir un poco de margen a los lados */
+    padding: 0 10px; 
 }
 
-/* Eliminar los bordes y el fondo blanco en los ion-items dentro de ion-accordion */
+
 ion-accordion-group {
     margin-top: 10px;
 }
 
 ion-item {
-    background: transparent !important; /* Fondo transparente para los items */
-    border: none; /* Eliminar borde blanco */
+    background: transparent !important; 
+    border: none; 
     margin: 10px 0;
     padding: 15px;
     box-shadow: none;
@@ -52,7 +52,7 @@ ion-item:hover {
     transform: translateY(-5px);
 }
 
-/* Si deseas agregar algún estilo a los accordion, puedes hacerlo aquí */
+
 ion-accordion {
     background: linear-gradient(to bottom, #4015db, #ffffff0c); 
 }
