@@ -48,7 +48,7 @@
     justify-content: center;
     align-items: center;
     height: 100%;
-    background: linear-gradient(to bottom, #000, #ffeb3b);
+    background: linear-gradient(to bottom, #3406dd, #ffeb3b);
     padding: 20px;
     box-sizing: border-box;
   }
@@ -97,7 +97,7 @@
   ion-input {
     --padding-start: 20px;
     --padding-end: 20px;
-    --background: #ffeb3b;
+    --background:none;
     --border-radius: 12px;
     --border-color: #ffb300;
     --box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -108,7 +108,7 @@
   
 
   ion-select {
-    --background: #ffeb3b;
+    --background:none;
     --border-radius: 12px;
     --border-color: #ffb300;
     --box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -118,7 +118,7 @@
   }
 
   ion-button {
-    --background: #007bff;
+    --background: #3a0eb3;
     --color: white;
     --border-radius: 50px;
     --box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
@@ -142,7 +142,7 @@
   
 
   .register-container {
-    background: linear-gradient(to bottom, #000, #ffeb3b);
+    background: linear-gradient(to bottom, #420cda, #6666662d);
   }
   
 
