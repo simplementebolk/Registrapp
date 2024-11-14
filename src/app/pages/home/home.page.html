@@ -1,15 +1,33 @@
+<ion-menu side="start" menuId="first" contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menú</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item button (click)="cerrarSesion()">Cerrar sesión</ion-item>
+      <ion-item button (click)="otraAccion()">Otra acción</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-title class="ion-text-center" style="font-size: 24px;">
       <span style="color: black;">registr</span><span style="color: #FFD700;">APP</span>
     </ion-title>
-    <div class="ion-text-center" style="font-size: 18px; color: rgb(5, 5, 5); margin-top: 4px;">
-      Bienvenido {{ usuario }}
-    </div>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content id="main-content" class="ion-padding">
+  <div class="welcome-message">
+    Bienvenido <strong>{{ usuario }}</strong>
+  </div>
+
   <ion-grid>
     <ion-row>
       <ion-col size="12" style="height: 15vh;"></ion-col> 
@@ -31,7 +49,7 @@
     <ion-row class="spaced-row">
       <ion-col size="5" offset="1">
         <ion-button expand="block" routerLink="/grades" class="custom-button" (click)="calificaciones()">
-          notas
+          Notas
         </ion-button>
       </ion-col>
       <ion-col size="5">

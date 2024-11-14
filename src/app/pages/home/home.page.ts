@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -8,34 +8,48 @@ import { NavController } from '@ionic/angular';
 })
 export class HomePage {
 
-  
+  usuario: string = '';
 
-  usuario:string=""
-
-  constructor(private navCtrl:NavController) {}
+  constructor(private navCtrl: NavController, private menu: MenuController) {}
 
   ngOnInit(): void {
-    var x=localStorage.getItem("usuario")
-    this.usuario=x ?? ''
+    var x = localStorage.getItem("usuario");
+    this.usuario = x ?? '';
   }
 
-  escanearqr(){
+  
+  cerrarSesion() {
+
+    console.log('Cerrando sesión...');
+    localStorage.removeItem("usuario"); 
+    this.navCtrl.navigateForward(['/login']); 
+    this.menu.close(); 
+  }
+
+
+  otraAccion() {
+    console.log('Realizando otra acción');
+    this.menu.close(); 
+  }
+
+
+  escanearqr() {
     this.navCtrl.navigateForward(['/escanearqr']);
   }
 
-  horario(){
+  horario() {
     this.navCtrl.navigateForward(['/horario']);
   }
 
-  calificaciones(){
+  calificaciones() {
     this.navCtrl.navigateForward(['/calificaciones']);
   }
 
-  asistencia(){
+  asistencia() {
     this.navCtrl.navigateForward(['/asistenciaalumno']);
   }
 
-  cursos(){
+  cursos() {
     this.navCtrl.navigateForward(['/cursosalumnos']);
   }
 

@@ -1,3 +1,33 @@
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.welcome-message {
+    font-size: 16px; 
+    font-weight: normal;
+    color: #ffffff;
+    text-transform: none;
+    letter-spacing: 1px;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: slideInDown 1s ease-out forwards;
+    text-align: center; 
+    margin-top: 8px; 
+}
+
+@keyframes slideInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
 ion-header {
     background: transparent;  
     padding: 10px;
@@ -5,19 +35,19 @@ ion-header {
     margin-bottom: 20px;  
 }
 
+
 ion-title {
     background-color: transparent;
     font-family: 'Roboto', sans-serif;
-    font-size: 1%;  
-    height: 0,5%;
+    font-size: 24px;  
     text-align: center;
     text-transform: uppercase;
     font-weight: bold;
     letter-spacing: 1.5px;
     line-height: 1.2;
-    animation: fadeInUp 1.5s ease-out forwards;
     padding: 0; 
 }
+
 
 ion-title span:nth-child(1) {
     color: black;
@@ -27,25 +57,17 @@ ion-title span:nth-child(2) {
     color: #FFD700;
 }
 
-ion-content {
-    
-    padding: 0 10px; 
-}
-
-
-ion-accordion-group {
-    margin-top: 10px;
-}
 
 ion-item {
-    background: transparent !important; 
-    border: none; 
+    background: transparent !important;  
+    border: none !important; 
     margin: 10px 0;
     padding: 15px;
-    box-shadow: none;
+    box-shadow: none !important;  
     transition: transform 0.3s ease, background 0.3s ease;
     max-width: 100%;
 }
+
 
 ion-item:hover {
     background: rgba(247, 211, 11, 0.1);
@@ -54,15 +76,36 @@ ion-item:hover {
 
 
 ion-accordion {
-    background: linear-gradient(to bottom, #4015db, #ffffff0c); 
+    background: linear-gradient(to bottom, #4015db, #ffffff0c) !important;  /* Aplicamos el gradiente */
+    border: none !important; 
+    box-shadow: none !important; 
 }
-ion-title{
+
+
+ion-accordion-button {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: #4015db;  
+    font-weight: bold;
     padding: 10px;
 }
+
+
+ion-list {
+    background: transparent !important;  
+    padding: 0;
+    margin: 0;
+}
+
+
 .content-container{
     color: #4015db;
 }
+
+/* Fondo del contenido */
 ion-content {
-    background: linear-gradient(to bottom, #4015db, #ffffff0c);
-  }
-  
+    background: linear-gradient(to bottom, #4015db, #ffffff0c); /* Usamos el gradiente aquí también */
+    padding: 0 10px;
+}
+

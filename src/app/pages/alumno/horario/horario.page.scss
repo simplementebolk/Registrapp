@@ -1,4 +1,84 @@
 ion-content {
-    --background: linear-gradient(to bottom, #4015db, #ffffff);
+  --background: linear-gradient(to bottom, #4015db, #ffffff);
+}
+
+.horario-content {
+  padding: 20px;
+  background-color: transparent;
+}
+
+.horario-card {
+  margin: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+}
+
+.horario-card-header {
+  background-color: #420cda;
+  color: white;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.horario-card-title {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.horario-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.horario-table th,
+.horario-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  font-size: 16px;
+}
+
+.horario-table th {
+  background-color: #855ae9;
+  color: white;
+  font-weight: bold;
+}
+
+.horario-row {
+  background-color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.horario-row:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.horario-row:hover {
+  background-color: #f1f1f1;
+}
+
+.horario-table td {
+  color: #333;
+}
+
+.horario-table strong {
+  color: #420cda;
+}
+
+
+.horario-scroll {
+  overflow-x: auto;
+  margin-top: 10px;
+  padding-bottom: 20px; 
+}
+
+@media (max-width: 768px) {
+  .horario-table th, .horario-table td {
+    font-size: 14px;
   }
-  
+
+  .horario-card {
+    margin: 10px;
+  }
+}
