@@ -1,5 +1,129 @@
 .custom-button {
-    --background: black;
-    --color: white;
-    --background-activated: #333;
+  --background: black;
+  --color: white;
+  --background-activated: #333;
+}
+
+
+ion-content {
+  --background: linear-gradient(to bottom, #420cda, #ffffff); 
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+
+ion-title {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  color: #333; 
+}
+
+
+ion-button.custom-butto {
+  --background: #4a90e2; 
+  --color: white;
+  --border-radius: 12px;
+  --padding-top: 12px;
+  --padding-bottom: 12px;
+  font-size: 16px;
+  width: 90%;
+  max-width: 300px;
+  margin-top: 20px;
+}
+
+
+h2 {
+  font-size: 20px;
+  color: #ffffff;
+  margin-top: 20px;
+  font-weight: 500;
+}
+
+
+ion-grid {
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px 0;
+  background: transparent; 
+}
+
+
+ion-row {
+  padding: 10px;
+  border-bottom: none; 
+  align-items: center;
+  background: transparent; 
+}
+
+ion-row.ion-text-center {
+  font-weight: bold;
+  background-color: transparent; 
+  color: #000000;
+}
+
+
+ion-col {
+  font-size: 14px;
+  color: #000000;
+}
+
+
+ion-checkbox {
+  --padding-start: 0px;
+  --padding-end: 0px;
+  --margin-top: 0;
+}
+
+
+ion-input {
+  --background: transparent;
+  font-size: 14px;
+  color: #000000;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+ion-button.custom-button {
+  --background: #000000; 
+  --color: white;
+  --border-radius: 12px;
+  font-size: 16px;
+  width: 90%; 
+  max-width: 300px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  --background: linear-gradient(to bottom, #420cda, #855ae9); 
+}
+
+
+ion-checkbox.checked {
+  background-color: #4a90e2;
+}
+
+ion-row:nth-child(odd) {
+  background-color: transparent; 
+}
+
+ion-row:nth-child(even) {
+  background-color: transparent; 
+}
+
+
+@media (max-width: 576px) {
+  ion-col {
+    font-size: 12px;
   }
+  ion-button.custom-button,
+  ion-button.custom-butto {
+    font-size: 14px;
+  }
+}
