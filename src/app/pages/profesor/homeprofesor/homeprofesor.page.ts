@@ -8,32 +8,46 @@ import { NavController } from '@ionic/angular';
 })
 export class HomeprofesorPage implements OnInit {
 
-  constructor(private navCtrl:NavController) { }
+  usuario: string = "";
 
-  usuario:string=""
+  constructor(private navCtrl: NavController) { }
 
   ngOnInit(): void {
-    var x=localStorage.getItem("usuario")
-    this.usuario=x ?? ''
+    const x = localStorage.getItem("usuario");
+    this.usuario = x ?? '';
   }
-  
-  generarqr(){
+
+  generarqr() {
     this.navCtrl.navigateForward(['/generarqr']);
   }
 
-  asistencia(){
+  asistencia() {
     this.navCtrl.navigateForward(['/asistencia']);
   }
-  
-  bitacora(){
+
+  bitacora() {
     this.navCtrl.navigateForward(['/bitacora']);
   }
 
-  notas(){
+  notas() {
     this.navCtrl.navigateForward(['/notas']);
   }
 
-  cursos(){
+  cursos() {
     this.navCtrl.navigateForward(['/cursos']);
+  }
+
+
+  horario() {
+    this.navCtrl.navigateForward(['/schedule']);
+  }
+
+  logout() {
+    localStorage.removeItem("usuario");
+    this.navCtrl.navigateRoot(['/login']);
+  }
+
+  otraAccion() {
+    console.log("Otra acción ejecutada");
   }
 }

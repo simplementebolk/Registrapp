@@ -31,7 +31,6 @@ const routes: Routes = [
     path: 'asistencia',
     loadChildren: () => import('./pages/profesor/asistencia/asistencia.module').then( m => m.AsistenciaPageModule)
   },
-  
   {
     path: 'generarqr',
     loadChildren: () => import('./pages/profesor/generarqr/generarqr.module').then( m => m.GenerarqrPageModule)
