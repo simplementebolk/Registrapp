@@ -1,0 +1,80 @@
+
+ion-header {
+  --background: #420cda;
+}
+
+
+ion-content {
+  --background: linear-gradient(to bottom, #420cda, #ffffff);
+  padding: 20px;
+}
+
+.bitacora-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+ion-item {
+  margin-bottom: 20px;
+}
+
+
+ion-label {
+  font-size: 16px;
+  color: #333;
+}
+
+ion-datetime,
+ion-textarea {
+  width: 100%;
+}
+
+
+ion-datetime {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  font-size: 14px; 
+}
+
+
+ion-datetime .datetime-button {
+  border-radius: 50%;
+  border: 2px solid #4a90e2;
+  width: 18px;
+  height: 18px;
+  background-color: transparent;
+}
+
+ion-datetime .datetime-button.selected {
+  background-color: #4a90e2;
+  border-color: #4a90e2;
+}
+
+
+ion-button {
+  margin-top: 20px;
+  --background: #FFD700;
+  --color: white;
+  --border-radius: 12px;
+  font-size: 16px;
+}
+
+
+@media (max-width: 576px) {
+  .bitacora-form {
+    padding: 15px;
+  }
+
+  ion-button {
+    font-size: 14px;
+  }
+
+  ion-label {
+    font-size: 14px;
+  }
+}

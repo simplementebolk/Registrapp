@@ -1,15 +1,43 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title class="ion-text-center" style="font-size: 24px;">
-      <span style="color: black;">registr</span><span style="color: #FFD700;">APP</span> - Bitacora
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">
+      <span class="app-title">registr</span><span class="app-title-highlight">APP</span> - Bitácora
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">bitacora</ion-title>
+    <ion-toolbar color="secondary">
+      <ion-title size="large">Bitácora de Aprendizaje</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Registrar Bitácora del Día</ion-card-title>
+            <ion-card-subtitle>Ingresa la información relacionada al día de clases.</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <form (ngSubmit)="guardarBitacora()">
+              <ion-item>
+                <ion-label position="stacked">Fecha</ion-label>
+                <ion-datetime [(ngModel)]="fecha" name="fecha" required></ion-datetime>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="stacked">Resumen del Día</ion-label>
+                <ion-textarea [(ngModel)]="resumen" name="resumen" rows="5" placeholder="Escribe un resumen del día" required></ion-textarea>
+              </ion-item>
+
+              <ion-button expand="full" color="success" type="submit">Guardar Bitácora</ion-button>
+            </form>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
