@@ -1,0 +1,56 @@
+
+ion-content {
+    --background: linear-gradient(to bottom, #4015db, #ffffff); /* Gradiente de color */
+    height: 100%;
+    padding: 10px;
+  }
+  
+
+  .curso-container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+
+  .curso-item {
+    background: #fff;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .curso-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+
+  .detalles-curso h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .detalles-curso p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  .detalles-curso h4 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  ion-list {
+    margin-top: 10px;
+  }
+  

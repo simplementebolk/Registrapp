@@ -8,14 +8,38 @@ import { NavController } from '@ionic/angular';
 })
 export class GenerarqrPage implements OnInit {
 
-  constructor(private navCtrl:NavController) { }
+  tiempoRestante: number = 10;
+  timerInterval: any; 
+  qrGenerado: boolean = false; 
+
+  constructor(private navCtrl: NavController) { }
 
   ngOnInit() {
+    this.iniciarTemporizador();
   }
-  
-  cancelar(){
-    this.navCtrl.navigateForward(['/homeprofesor']);
-  }
-    
-}
 
+
+  iniciarTemporizador() {
+    this.timerInterval = setInterval(() => {
+      if (this.tiempoRestante > 0) {
+        this.tiempoRestante--; 
+      } else {
+        clearInterval(this.timerInterval); 
+        this.qrGenerado = false; 
+        this.redirigirAlHomeProfesor(); 
+      }
+    }, 1000); 
+    this.qrGenerado = true; 
+  }
+
+ 
+  redirigirAlHomeProfesor() {
+    this.navCtrl.navigateForward('/homeprofesor'); 
+  }
+
+
+  cancelar() {
+    clearInterval(this.timerInterval); 
+    this.navCtrl.navigateForward(['/homeprofesor']); 
+  }
+}

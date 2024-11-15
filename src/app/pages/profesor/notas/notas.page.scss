@@ -1,0 +1,65 @@
+
+ion-content {
+    --background: linear-gradient(to bottom, #4015db, #ffffff); 
+    height: 100%; 
+    margin: 0;
+    padding: 0;
+}
+
+
+.select-container {
+    margin: 10px 0;
+}
+
+
+.alumno-label {
+    font-size: 16px;
+    color: #444;
+    font-weight: 600;
+    margin-right: 10px;
+    width: 50%;
+}
+
+
+.nota-input {
+    width: 45%;
+    padding-left: 10px;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+
+ion-item {
+    margin-bottom: 15px;
+    background: transparent !important;
+    --border-color: transparent !important; 
+    padding: 0 !important; 
+    border-radius: 0 !important; 
+}
+
+
+ion-list {
+    padding: 10px;
+    background: transparent !important; 
+}
+
+
+ion-select {
+    margin-top: 10px;
+    font-size: 14px;
+    background: transparent !important; 
+}
+
+ion-button {
+    padding-left: 15px;
+}
+
+.select-container{
+    --background: transparent;
+    
+}
+
+.item-notas{
+    --background: transparent;
+}
