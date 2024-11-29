@@ -1,13 +1,29 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>cambiarcontrasena</ion-title>
+    <ion-title class="ion-text-center" style="font-size: 24px;">
+      <span style="color: black;">registr</span><span style="color: #FFD700;">APP</span> 
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">cambiarcontrasena</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="form-container">
+    
+    <form [formGroup]="passwordResetForm" (ngSubmit)="onSubmit()">
+      <ion-item [class.invalid]="email?.invalid && email?.touched">
+        <ion-label position="floating">Correo Electrónico</ion-label>
+        <ion-input
+          type="email"
+          formControlName="email"
+        ></ion-input>
+        <ion-note *ngIf="email?.invalid && email?.touched" color="danger">
+          Ingresa un correo electrónico válido.
+        </ion-note>
+      </ion-item>
+
+      <ion-button expand="full" class="volver" (click)="goBack()">
+        Volver al Login
+      </ion-button>
+    </form>
+  </div>
 </ion-content>

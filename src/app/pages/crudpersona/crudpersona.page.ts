@@ -32,8 +32,6 @@ export class CrudpersonaPage implements OnInit {
     });
   }
   
-  
- 
   eliminar(id:any){
     this.cp.eliminar(id).then(()=>{
       alert("elimino correctamente")

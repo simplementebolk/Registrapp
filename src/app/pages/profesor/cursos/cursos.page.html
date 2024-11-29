@@ -1,42 +1,21 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title class="ion-text-center" style="font-size: 24px;">
-      <span style="color: black;">registr</span><span style="color: #FFD700;">APP</span> - Cursos
-    </ion-title>
+    <ion-title>Cursos</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Mis Cursos</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
 
-  <div class="curso-container">
-    <ion-list>
-      <ion-item class="curso-item">
-        <ion-label class="curso-label">
-          <h2>programacion de algoritmos</h2>
-          <p>Sección: PGY-122 | Día: Lunes | Aula: 101</p>
-        </ion-label>
-        <ion-button fill="outline" color="primary" expand="block" (click)="verDetallesCurso('programacion de algoritmos')">Ver Detalles</ion-button>
-      </ion-item>
+  <ion-list>
+    <ion-item *ngFor="let curso of cursos" (click)="verDetallesCurso(curso)">
+      <ion-label>
+        <h2>{{ curso.nombre }}</h2>
+        <p>{{ curso.profesor.nombre }} (Profesor)</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 
-      <ion-item class="curso-item">
-        <ion-label class="curso-label">
-          <h2>desarrollo web</h2>
-          <p>Sección: PGY-512 | Día: Miércoles | Aula: 102</p>
-        </ion-label>
-        <ion-button fill="outline" color="primary" expand="block" (click)="verDetallesCurso('programacion web')">Ver Detalles</ion-button>
-      </ion-item>
-      
-
-    </ion-list>
-  </div>
-
-
-  <ion-modal [isOpen]="isModalOpen" (didDismiss)="isModalOpen = false">
+  <ion-modal [isOpen]="isModalOpen" (didDismiss)="cerrarModal()">
     <ng-template>
       <ion-header>
         <ion-toolbar>
@@ -48,18 +27,22 @@
       </ion-header>
 
       <ion-content>
-        <div class="detalles-curso">
-          <h3>{{ cursoSeleccionado?.nombre }}</h3>
-          <p><strong>Descripción:</strong> {{ cursoSeleccionado?.descripcion }}</p>
-
-          <h4>Secciones:</h4>
+        <div *ngIf="cursoSeleccionado">
+          <h2>{{ cursoSeleccionado.nombre }}</h2>
+          
+          <p><strong>Profesor:</strong> {{ cursoSeleccionado.profesor.nombre }}</p>
+          
+          <h3>Alumnos:</h3>
           <ion-list>
-            <ion-item *ngFor="let seccion of cursoSeleccionado?.secciones">
-              <ion-label>{{ seccion.nombre }} | Día: {{ seccion.dia }} | Aula: {{ seccion.aula }}</ion-label>
+            <ion-item *ngFor="let alumno of cursoSeleccionado.alumnos">
+              <ion-label style="background-color: black;">
+                <h4>{{ alumno.nombre }}</h4>
+              </ion-label>
             </ion-item>
           </ion-list>
         </div>
       </ion-content>
     </ng-template>
   </ion-modal>
+
 </ion-content>

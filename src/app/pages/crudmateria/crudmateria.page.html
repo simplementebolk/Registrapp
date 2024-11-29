@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Gestión de Materias</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Agregar Nueva Materia</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Nombre de la Materia</ion-label>
+        <ion-input [(ngModel)]="nuevaMateria.nombre" placeholder="Ingrese el nombre de la materia"></ion-input>
+      </ion-item>
+
+      <ion-button expand="full" (click)="crearMateria()">Crear Materia</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-list>
+    <ion-item *ngFor="let materia of materias">
+      <ion-label>{{ materia.nombre }}</ion-label>
+      <ion-button color="danger" (click)="eliminarMateria(materia.id)">Eliminar</ion-button>
+  
+
+      <ion-list>
+        <ion-item *ngFor="let alumno of materia.alumnos">
+          <ion-label>{{ alumno.nombre }} {{ alumno.apellido }}</ion-label>
+          <ion-button 
+          color="danger" 
+          *ngIf="alumno.id" 
+          (click)="eliminarAlumnoDeMateria(materia.id, alumno.id)">
+          Eliminar
+        </ion-button>
+        
+        </ion-item>
+      </ion-list>
+  
+
+      <ion-select [(ngModel)]="alumnoSeleccionado" placeholder="Selecciona un Alumno">
+        <ion-select-option *ngFor="let alumno of alumnos" [value]="alumno">
+          {{ alumno.nombre }} {{ alumno.apellido }}
+        </ion-select-option>
+      </ion-select>
+      <ion-button color="primary" (click)="agregarAlumnoAMateria(materia.id)">Agregar Alumno</ion-button>
+    </ion-item>
+  </ion-list>
+  
+</ion-content>

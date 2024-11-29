@@ -18,25 +18,22 @@ export class GenerarqrPage implements OnInit {
     this.iniciarTemporizador();
   }
 
-
   iniciarTemporizador() {
+    this.qrGenerado = true;
     this.timerInterval = setInterval(() => {
       if (this.tiempoRestante > 0) {
-        this.tiempoRestante--; 
+        this.tiempoRestante--;
       } else {
-        clearInterval(this.timerInterval); 
-        this.qrGenerado = false; 
-        this.redirigirAlHomeProfesor(); 
+        clearInterval(this.timerInterval);
+        this.qrGenerado = false;
+        this.redirigirAlHomeProfesor();
       }
-    }, 1000); 
-    this.qrGenerado = true; 
+    }, 1000);
   }
 
- 
   redirigirAlHomeProfesor() {
     this.navCtrl.navigateForward('/homeprofesor'); 
   }
-
 
   cancelar() {
     clearInterval(this.timerInterval); 

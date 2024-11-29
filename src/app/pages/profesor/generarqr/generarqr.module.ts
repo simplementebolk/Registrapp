@@ -8,8 +8,11 @@ import { GenerarqrPageRoutingModule } from './generarqr-routing.module';
 
 import { GenerarqrPage } from './generarqr.page';
 
+import { QrCodeModule } from 'ng-qrcode';
+
 @NgModule({
   imports: [
+    QrCodeModule,
     CommonModule,
     FormsModule,
     IonicModule,

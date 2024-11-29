@@ -1,16 +1,7 @@
-export interface Alumno {
-  id?: string;
-  nombre: string;
-  apellido: string;
-  correo: string;
-  password: string;
-  password2: string;
-  asistencia: number;
-  asignaturas: Asignatura[];
-}
+import { Persona } from './Persona';
+import { Materia } from './Materia';
 
-export interface Asignatura {
-  nombre: string;
-  correo_profe: string;
-  totalClases: number;
+export interface Alumno extends Persona {
+  tipo_usuario: 'alumno';
+  materias: Materia[];
 }

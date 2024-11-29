@@ -1,8 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
+// Definimos las interfaces de Curso y Alumno
 interface Curso {
   nombre: string;
   descripcion: string;
+}
+
+interface Alumno {
+  nombre: string;
+  cursos: Curso[];
 }
 
 @Component({
@@ -12,7 +18,7 @@ interface Curso {
 })
 export class CursosPage implements OnInit {
 
-  cursos: Curso[] = [
+  todosLosCursos: Curso[] = [
     { nombre: 'Calidad de Software', descripcion: 'Curso sobre principios de calidad en el desarrollo de software.' },
     { nombre: 'Aplicaciones Móviles', descripcion: 'Curso sobre desarrollo de aplicaciones móviles para diferentes plataformas.' },
     { nombre: 'Arquitectura de Software', descripcion: 'Curso sobre diseño y arquitectura de sistemas de software.' },
@@ -20,8 +26,20 @@ export class CursosPage implements OnInit {
     { nombre: 'Estadística Descriptiva', descripcion: 'Curso sobre técnicas y métodos para el análisis descriptivo de datos.' }
   ];
 
+  alumno: Alumno = {
+    nombre: 'Juan Pérez',
+    cursos: [
+      { nombre: 'Calidad de Software', descripcion: 'Curso sobre principios de calidad en el desarrollo de software.' },
+      { nombre: 'Estadística Descriptiva', descripcion: 'Curso sobre técnicas y métodos para el análisis descriptivo de datos.' }
+    ]
+  };
+
+  cursosInscritos: Curso[] = [];
+
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.cursosInscritos = this.alumno.cursos;
+  }
 
 }

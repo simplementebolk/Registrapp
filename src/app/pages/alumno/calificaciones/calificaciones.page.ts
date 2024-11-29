@@ -55,7 +55,6 @@ export class CalificacionesPage implements OnInit {
 
   ngOnInit() { }
 
-  // Función para redondear al primer decimal
   redondear(valor: number): number {
     return parseFloat(valor.toFixed(1));
   }

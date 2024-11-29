@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MateriaService } from 'src/app/servicios/materia.service';
+import { Materia } from 'src/app/model/Materia';
 
 @Component({
   selector: 'app-cursos',
@@ -7,44 +9,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CursosPage implements OnInit {
 
- 
-  isModalOpen = false;
+  isModalOpen = false; // Controla si el modal está abierto o cerrado
+  cursoSeleccionado: Materia | null = null; // Almacena el curso seleccionado para mostrar los detalles
+  cursos: Materia[] = [];  // Lista de cursos
 
+  constructor(private materiaService: MateriaService) { }
 
-  cursoSeleccionado: any = null;
-
-  cursos = [
-    {
-      nombre: 'programacion de algoritmos',
-      descripcion: 'Curso completo de programacion de algoritmos.',
-      secciones: [
-        { nombre: 'Sección PGY-122', dia: 'Lunes', aula: '101' },
-        { nombre: 'Sección PGY-512', dia: 'Miércoles', aula: '102' }
-      ]
-    },
-    {
-      nombre: 'programacion web',
-      descripcion: 'programacion orientada a paginas web.',
-      secciones: [
-        { nombre: 'Sección A', dia: 'Martes', aula: '201' },
-        { nombre: 'Sección B', dia: 'Jueves', aula: '202' }
-      ]
-    },
-
-  ];
-
-  constructor() { }
-
-  ngOnInit() {}
-
-
-  verDetallesCurso(nombreCurso: string) {
-    this.cursoSeleccionado = this.cursos.find(curso => curso.nombre === nombreCurso);
-    this.isModalOpen = true;
+  ngOnInit() {
+    this.listarMaterias();
   }
 
+  // Listar todas las materias
+  listarMaterias() {
+    this.materiaService.listarMaterias().subscribe((materias: Materia[]) => {
+      this.cursos = materias;
+    });
+  }
+
+  // Ver detalles del curso seleccionado
+  verDetallesCurso(curso: Materia) {
+    this.cursoSeleccionado = curso; // Asigna el curso seleccionado al modal
+    this.isModalOpen = true; // Abre el modal
+  }
+
+  // Cerrar el modal
   cerrarModal() {
-    this.isModalOpen = false;
+    this.isModalOpen = false; // Cierra el modal
   }
-
 }

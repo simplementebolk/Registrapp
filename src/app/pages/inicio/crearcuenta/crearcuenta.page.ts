@@ -25,11 +25,10 @@ export class CrearcuentaPage {
 
   async registerUser() {
     try {
-      // Registrar usuario con Firebase Authentication
+
       const userCredential = await this.afAuth.createUserWithEmailAndPassword(this.email, this.password);
       const uid = userCredential.user?.uid;
 
-      // Crear el objeto del usuario
       const userData: Persona = {
         id: uid,
         nombre: this.nombre,
@@ -38,10 +37,8 @@ export class CrearcuentaPage {
         tipo_usuario: this.tipo_usuario,
       };
 
-      // Guardar el usuario en Firestore
       await this.firestore.collection('users').doc(uid).set(userData);
 
-      // Mostrar mensaje de éxito
       this.presentAlert('Registro exitoso', 'Usuario creado correctamente.');
     } catch (error) {
       console.error('Error al registrar usuario:', error);

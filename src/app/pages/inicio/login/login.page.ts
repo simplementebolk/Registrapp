@@ -29,30 +29,27 @@ export class LoginPage implements OnInit {
     try {
       const userCredential = await this.afAuth.signInWithEmailAndPassword(this.email, this.password);
       
-      // Obtén el documento del usuario desde Firestore
       const userDoc = this.firestore.collection<Persona>('users').doc(userCredential.user?.uid);
       userDoc.valueChanges().subscribe((user) => {
         if (user) {
-          // Guarda el nombre de usuario en localStorage
           localStorage.setItem('usuario', user.nombre);
-  
-          // Redirige según el tipo de usuario
           if (user.tipo_usuario === 'profesor') {
             this.router.navigate(['/homeprofesor']);
           } else if (user.tipo_usuario === 'alumno') {
             this.router.navigate(['/home']);
           } else {
-            alert("Tipo de usuario no reconocido.");
+            this.presentAlert("Tipo de usuario no reconocido.");
           }
+        } else {
+          this.presentAlert("No se pudo encontrar el usuario.");
         }
       });
     } catch (error) {
-      alert("Nombre de usuario o contraseña incorrecto!")
+      this.presentAlert("Nombre de usuario o contraseña incorrecto!");
     }
   }
-  
 
-  async presentAlert() {
+  async presentAlert(p0: string) {
     const alert = await this.alertController.create({
       header: 'Error',
       message: 'Usuario o contraseña incorrectos.',

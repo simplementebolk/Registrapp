@@ -76,7 +76,7 @@ ion-item:hover {
 
 
 ion-accordion {
-    background: linear-gradient(to bottom, #4015db, #ffffff0c) !important;  /* Aplicamos el gradiente */
+    background: linear-gradient(to bottom, #4015db, #ffffff0c) !important;  
     border: none !important; 
     box-shadow: none !important; 
 }
@@ -103,9 +103,8 @@ ion-list {
     color: #4015db;
 }
 
-/* Fondo del contenido */
 ion-content {
-    background: linear-gradient(to bottom, #4015db, #ffffff0c); /* Usamos el gradiente aquí también */
+    background: linear-gradient(to bottom, #4015db, #ffffff0c); 
     padding: 0 10px;
 }
 

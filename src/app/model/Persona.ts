@@ -4,4 +4,5 @@ export interface Persona {
     apellido: string;
     correo: string;
     tipo_usuario: string;
-}
+  }
+  

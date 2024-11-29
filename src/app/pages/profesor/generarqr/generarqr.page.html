@@ -7,16 +7,18 @@
 </ion-header>
 
 <ion-content padding>
-  <!-- Contenedor del QR -->
+
   <div class="qr-container">
-    <img src="/assets/img/qr.png" alt="QR Code" id="qr-image">
+    <qr-code value="pepito333" 
+         size="300" 
+         errorCorrectionLevel="M" />
   </div>
 
-  <!-- Contenedor del temporizador -->
-  <div class="timer-container">
-    <ion-label id="timer" class="timer-text">disponible por 10 segundos</ion-label>
+  <div class="timer-container" *ngIf="qrGenerado">
+    <ion-label id="timer" class="timer-text">
+      Disponible por {{ tiempoRestante }} segundos
+    </ion-label>
   </div>
 
-  <!-- Botón para cancelar -->
   <ion-button expand="full" (click)="cancelar()" class="custom-button">Cancelar</ion-button>
 </ion-content>

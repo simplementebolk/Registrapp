@@ -80,6 +80,14 @@ const routes: Routes = [
     loadChildren: () => import('./pages/crudpersona/crudpersona.module').then( m => m.CrudpersonaPageModule)
   },
   {
+    path: 'crudasistencia',
+    loadChildren: () => import('./pages/crudasistencia/crudasistencia.module').then(m => m.CrudasistenciaPageModule)
+  },
+  {
+    path: 'crudmateria',
+    loadChildren: () => import('./pages/crudmateria/crudmateria.module').then(m => m.CrudmateriaPageModule)
+  },
+  {
     path: '**',
     loadChildren: () => import('./pages/notfound/notfound.module').then( m => m.NotfoundPageModule)
   },
