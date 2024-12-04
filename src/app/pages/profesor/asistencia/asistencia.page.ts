@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
-import { AlumnoService } from 'src/app/servicios/alumno.service'; // Importa el servicio de alumnos
-import { Alumno } from 'src/app/model/Alumno'; // Asegúrate de importar el modelo Alumno
-import { Asistencia } from 'src/app/model/Asistencia';// Importa el modelo de Asistencia
+import { AlumnoService } from 'src/app/servicios/alumno.service'; 
+import { Alumno } from 'src/app/model/Alumno'; 
+import { Asistencia } from 'src/app/model/Asistencia';
 
-// Creamos una nueva interfaz que combine la información de un Alumno con la Asistencia
+
 export interface AsistenciaAlumno {
   alumno: Alumno;
   fecha: string;
@@ -24,7 +24,6 @@ export class AsistenciaPage implements OnInit {
   constructor(private navCtrl: NavController, private alumnoService: AlumnoService) { }
 
   ngOnInit(): void {
-    // Obtener los IDs de los alumnos desde localStorage
     const alumnosCurso = localStorage.getItem('alumnosCurso');
     this.cursoId = localStorage.getItem('cursoId') || '';
 

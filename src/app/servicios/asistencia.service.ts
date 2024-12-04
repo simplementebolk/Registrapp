@@ -1,24 +1,23 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Asistencia } from '../model/Asistencia';  
-import { Observable } from 'rxjs';
+import { Asistencia } from 'src/app/model/Asistencia'; // Importa la interfaz Asistencia
 
 @Injectable({
   providedIn: 'root'
 })
 export class AsistenciaService {
 
-  constructor(private afs: AngularFirestore) { }
+  constructor(private firestore: AngularFirestore) { }
 
-  obtenerAsistenciasPorCursoYAlumno(cursoId: string, alumnoId: string): Observable<Asistencia[]> {
-    return this.afs.collection<Asistencia>('asistencias', ref => 
-      ref.where('materiaId', '==', cursoId)
-         .where('alumnoId', '==', alumnoId)
-         .orderBy('fecha', 'desc') 
-    ).valueChanges();
+  guardarAsistencia(materiaId: string, alumnoId: string, asistencia: Asistencia): Promise<any> {
+    const asistenciaRef = this.firestore.collection('asistencia').doc(materiaId).collection('alumnos').doc(alumnoId);
+    return asistenciaRef.set({
+      fecha: asistencia.fecha,
+      presente: asistencia.presente
+    }, { merge: true });
   }
 
-  registrarAsistencia(asistencia: Asistencia): Promise<void> {
-    return this.afs.collection('asistencias').doc(asistencia.id).set(asistencia);
+  obtenerAsistencia(materiaId: string, alumnoId: string) {
+    return this.firestore.collection('asistencia').doc(materiaId).collection('alumnos').doc(alumnoId).valueChanges();
   }
 }

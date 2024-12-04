@@ -27,6 +27,7 @@ export class CrearcuentaPage {
 
   async registerUser() {
     try {
+
       const userCredential = await this.afAuth.createUserWithEmailAndPassword(this.email, this.password);
       const uid = userCredential.user?.uid;
 
@@ -53,7 +54,13 @@ export class CrearcuentaPage {
           tipo_usuario: 'alumno',
           materias: []
         };
+
         await this.firestore.collection('alumnos').doc(uid).set(alumnoData);
+
+        await this.firestore.collection('alumnos').doc(uid).collection('detalles').add({
+          materias: [],
+          fechaRegistro: new Date()
+        });
       }
 
       this.presentAlert('Registro exitoso', 'Usuario creado correctamente.');

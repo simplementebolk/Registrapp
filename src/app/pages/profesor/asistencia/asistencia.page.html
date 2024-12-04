@@ -14,6 +14,7 @@
 
   <h2 class="ion-text-center" style="margin-top: 20px; font-size: 18px;">Asistencia de Alumnos</h2>
 
+  <!-- Tabla de Asistencia -->
   <ion-grid>
     <ion-row class="ion-text-center" style="font-weight: bold;">
       <ion-col size="4">Alumno</ion-col>
@@ -30,14 +31,33 @@
         <ion-input type="text" [value]="item.fecha" readonly></ion-input>
       </ion-col>
     </ion-row>
-
   </ion-grid>
-
+  
   <ion-button expand="block" class="custom-button" style="margin-top: 20px;" (click)="confirmarAsistencia()">
     Confirmar Asistencia
   </ion-button>
+  <!-- Mostrar el estado de asistencia para cada alumno -->
+  <h3 class="ion-text-center" style="margin-top: 30px; font-size: 16px;">Estado de Asistencia</h3>
+  
+  <ion-grid>
+    <ion-row class="ion-text-center" style="font-weight: bold;">
+      <ion-col size="6">Alumno</ion-col>
+      <ion-col size="6">Estado</ion-col>
+    </ion-row>
+
+    <ion-row *ngFor="let item of asistencia">
+      <ion-col size="6">{{ item.alumno.nombre }} {{ item.alumno.apellido }}</ion-col>
+      <ion-col size="6">
+        <span [ngClass]="item.presente ? 'presente' : 'ausente'">
+          {{ item.presente ? 'Presente' : 'Ausente' }}
+        </span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
 
   <ion-button expand="block" color="medium" style="margin-top: 20px;" (click)="volver()">
     Volver
   </ion-button>
+
 </ion-content>

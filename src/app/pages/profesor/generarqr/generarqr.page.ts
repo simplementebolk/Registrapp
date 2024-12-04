@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';  
 import { NavController } from '@ionic/angular';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+
 
 @Component({
   selector: 'app-generarqr',
@@ -15,20 +17,25 @@ export class GenerarqrPage implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute, 
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private firestore: AngularFirestore
   ) { }
 
   ngOnInit() {
-    this.cursoId = this.activatedRoute.snapshot.paramMap.get('cursoId') || '';  
+  this.cursoId = this.activatedRoute.snapshot.paramMap.get('cursoId') || '';
+  this.cursoNombre = this.activatedRoute.snapshot.paramMap.get('cursoNombre') || '';
 
-    this.cursoNombre = this.activatedRoute.snapshot.paramMap.get('cursoNombre') || '';
-    this.qrValue = `Curso ID: ${this.cursoId}`;
+  this.qrValue = `Curso ID: ${this.cursoId}`;
 
-    console.log('Curso ID:', this.cursoId);
-    console.log('Curso Nombre:', this.cursoNombre);
+  console.log('Curso ID:', this.cursoId);
+  console.log('Curso Nombre:', this.cursoNombre);
   }
+
+  
 
   volver() {
     this.navCtrl.navigateBack('/asistencia'); 
   }
+  
+  
 }
