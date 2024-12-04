@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-bitacora',
@@ -11,7 +12,7 @@ export class BitacoraPage implements OnInit {
   fecha: string;
   resumen: string;
 
-  constructor() { }
+  constructor(private navCtrl:NavController,) { }
 
   ngOnInit() {
 
@@ -29,4 +30,7 @@ export class BitacoraPage implements OnInit {
     }
   }
 
+  volver() {
+    this.navCtrl.navigateForward('/homeprofesor');
+  }
 }

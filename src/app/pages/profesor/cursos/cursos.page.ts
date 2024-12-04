@@ -34,4 +34,8 @@ export class CursosPage implements OnInit {
     localStorage.setItem('alumnosCurso', JSON.stringify(curso.alumnos));
     this.navCtrl.navigateForward('/asistencia');
   }
+
+  volver() {
+    this.navCtrl.navigateForward('/homeprofesor');
+  }
 }

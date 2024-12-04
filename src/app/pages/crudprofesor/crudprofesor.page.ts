@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 import { ProfesorService } from '../../servicios/profesor.service';
 import { Profesor } from '../../model/Profesor';
+
 
 @Component({
   selector: 'app-crudprofesor',
@@ -12,7 +14,7 @@ export class CrudprofesorPage implements OnInit {
   profesores: Profesor[] = [];
   nuevoProfesor: Profesor = { id: '', nombre: '', apellido: '', correo: '', tipo_usuario: 'profesor' };
 
-  constructor(private profesorService: ProfesorService) { }
+  constructor(private navCtrl: NavController,private profesorService: ProfesorService,) { }
 
   ngOnInit() {
     this.cargarProfesores();
@@ -40,5 +42,9 @@ export class CrudprofesorPage implements OnInit {
         this.cargarProfesores();
       })
       .catch(err => console.error('Error al eliminar profesor:', err));
+  }
+
+  volver() {
+    this.navCtrl.navigateForward('/homeprofesor');
   }
 }

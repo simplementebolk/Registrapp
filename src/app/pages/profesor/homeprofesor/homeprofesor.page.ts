@@ -50,8 +50,4 @@ export class HomeprofesorPage implements OnInit {
     localStorage.removeItem("usuario");
     this.navCtrl.navigateRoot(['/login']);
   }
-
-  otraAccion() {
-    console.log("Otra acción ejecutada");
-  }
 }

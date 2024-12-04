@@ -5,6 +5,7 @@ import { Alumno } from '../../model/Alumno';
 import { AlumnoService } from '../../servicios/alumno.service';
 import { ProfesorService } from '../../servicios/profesor.service';
 import { Profesor } from 'src/app/model/Profesor';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-crudmateria',
@@ -24,6 +25,7 @@ export class CrudmateriaPage implements OnInit {
     private materiaService: MateriaService,
     private alumnoService: AlumnoService,
     private profesorService: ProfesorService,
+    private navCtrl:NavController,
   ) { }
 
   ngOnInit() {
@@ -94,5 +96,9 @@ export class CrudmateriaPage implements OnInit {
         this.cargarMaterias();
       })
       .catch(err => console.error('Error al eliminar alumno:', err));
+  }
+
+  volver() {
+    this.navCtrl.navigateForward('/homeprofesor');
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-notas',
@@ -24,7 +25,7 @@ export class NotasPage implements OnInit {
     { nombre: 'Carlos Hernández', notas: { 'Evaluación 1': null, 'Evaluación 2': null, 'Evaluación 3': null } },
   ];
 
-  constructor() { }
+  constructor(private navCtrl:NavController) { }
 
   ngOnInit() {}
 
@@ -58,5 +59,9 @@ export class NotasPage implements OnInit {
 
   seleccionarEvaluacion(evaluacion: string) {
     this.evaluacionSeleccionada = evaluacion;
+  }
+
+  volver() {
+    this.navCtrl.navigateForward('/homeprofesor');
   }
 }
