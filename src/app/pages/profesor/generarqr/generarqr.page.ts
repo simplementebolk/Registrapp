@@ -31,11 +31,7 @@ export class GenerarqrPage implements OnInit {
   console.log('Curso Nombre:', this.cursoNombre);
   }
 
-  
-
   volver() {
     this.navCtrl.navigateBack('/asistencia'); 
-  }
-  
-  
+  } 
 }

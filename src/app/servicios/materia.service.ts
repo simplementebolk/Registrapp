@@ -55,8 +55,13 @@ export class MateriaService {
   
   obtenerAlumnosPorMateria(cursoId: string): Observable<Alumno[]> {
     return this.afs.collection('materias').doc(cursoId)
-      .collection('alumnos') // Suponiendo que los alumnos están en una subcolección "alumnos" dentro de la materia
+      .collection('alumnos')
       .valueChanges() as Observable<Alumno[]>;
+  }
+
+  obtenerAsistenciaCurso(cursoId: string, alumnoId: string): Observable<any[]> {
+    return this.afs.collection('asistencia', ref => 
+      ref.where('cursoId', '==', cursoId).where('alumnoId', '==', alumnoId)).valueChanges();
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 interface Calificacion {
   evaluacion1: number;
@@ -51,7 +52,7 @@ export class CalificacionesPage implements OnInit {
     }
   };
 
-  constructor() { }
+  constructor(private navCtrl:NavController) { }
 
   ngOnInit() { }
 
@@ -75,4 +76,8 @@ export class CalificacionesPage implements OnInit {
     const promedioFinal = (promedioPresentacion * 0.6) + (examen * 0.4);
     return this.redondear(promedioFinal);
   }
+
+  volver() {
+    this.navCtrl.navigateBack('/home');
+  } 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MateriaService } from 'src/app/servicios/materia.service';
 import { Materia } from 'src/app/model/Materia';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-cursos',
@@ -13,7 +14,7 @@ export class CursosPage implements OnInit {
   cursoSeleccionado: Materia | null = null;
   cursos: Materia[] = [];
 
-  constructor(private materiaService: MateriaService) { }
+  constructor(private materiaService: MateriaService, private navCtrl:NavController) { }
 
   ngOnInit() {
     const alumnoId = localStorage.getItem('usuarioId'); 
@@ -24,9 +25,10 @@ export class CursosPage implements OnInit {
 
   listarCursosDelAlumno(alumnoId: string) {
     this.materiaService.obtenerCursosDelAlumno(alumnoId).subscribe((materias: Materia[]) => {
-      this.cursos = materias; 
+      this.cursos = materias;
     });
   }
+  
 
   verDetallesCurso(curso: Materia) {
     this.cursoSeleccionado = curso;
@@ -36,4 +38,8 @@ export class CursosPage implements OnInit {
   cerrarModal() {
     this.isModalOpen = false;
   }
+
+  volver() {
+    this.navCtrl.navigateBack('/home');
+  } 
 }

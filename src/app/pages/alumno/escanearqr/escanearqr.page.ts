@@ -50,4 +50,8 @@ export class EscanearqrPage implements OnInit {
   cancelar() {
     this.navCtrl.navigateForward(['/home']);
   }
+
+  volver() {
+    this.navCtrl.navigateBack('/home');
+  } 
 }

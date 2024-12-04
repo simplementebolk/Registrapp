@@ -3,7 +3,7 @@ import { NavController } from '@ionic/angular';
 import { AlumnoService } from 'src/app/servicios/alumno.service'; 
 import { Alumno } from 'src/app/model/Alumno'; 
 import { Asistencia } from 'src/app/model/Asistencia';
-import { AngularFirestore } from '@angular/fire/compat/firestore';  // Importar AngularFirestore
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 export interface AsistenciaAlumno {
   alumno: Alumno;
@@ -24,7 +24,7 @@ export class AsistenciaPage implements OnInit {
   constructor(
     private navCtrl: NavController, 
     private alumnoService: AlumnoService,
-    private firestore: AngularFirestore  // Inyectamos AngularFirestore
+    private firestore: AngularFirestore
   ) { }
 
   ngOnInit(): void {
@@ -48,7 +48,6 @@ export class AsistenciaPage implements OnInit {
     this.navCtrl.navigateForward(['/generarqr', this.cursoId]);
   }
 
-  // Modificar el método para guardar la asistencia en Firestore
   confirmarAsistencia() {
     this.asistencia.forEach(item => {
       const asistenciaData = {
@@ -58,7 +57,6 @@ export class AsistenciaPage implements OnInit {
         fecha: item.fecha,
       };
 
-      // Guardar cada registro de asistencia en la colección 'asistencia'
       this.firestore.collection('asistencia').add(asistenciaData)
         .then(() => {
           console.log('Asistencia guardada:', asistenciaData);
