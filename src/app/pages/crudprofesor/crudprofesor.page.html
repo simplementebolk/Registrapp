@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Gestión de Profesores</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Agregar Nuevo Profesor</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Nombre del Profesor</ion-label>
+        <ion-input [(ngModel)]="nuevoProfesor.nombre" placeholder="Ingrese el nombre del profesor"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Apellido del Profesor</ion-label>
+        <ion-input [(ngModel)]="nuevoProfesor.apellido" placeholder="Ingrese el apellido del profesor"></ion-input>
+      </ion-item>
+      <ion-button expand="full" (click)="crearProfesor()">Crear Profesor</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list>
+    <ion-item *ngFor="let profesor of profesores">
+      <ion-label>{{ profesor.nombre }} {{ profesor.apellido }}</ion-label>
+      <ion-button color="danger" (click)="eliminarProfesor(profesor.id || '')">Eliminar</ion-button>
+
+    </ion-item>
+  </ion-list>
+</ion-content>

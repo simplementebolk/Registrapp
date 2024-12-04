@@ -11,7 +11,12 @@ export class AlumnoService {
   constructor(private afs: AngularFirestore) { }
 
   listarAlumnos() {
-    return this.afs.collection<Alumno>('users', ref => ref.where('tipo_usuario', '==', 'alumno'))
+    return this.afs.collection<Alumno>('alumnos', ref => ref.where('tipo_usuario', '==', 'alumno'))
+      .valueChanges();
+  }  
+  
+  obtenerAlumnosPorCurso(cursoId: string): Observable<Alumno[]> {
+    return this.afs.collection<Alumno>('alumnos', ref => ref.where('cursoId', '==', cursoId))
       .valueChanges();
   }
 

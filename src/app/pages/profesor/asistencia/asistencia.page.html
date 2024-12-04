@@ -8,13 +8,11 @@
 
 <ion-content padding>
 
-  <ion-button expand="block" class="custom-butto" style="margin: 10px auto;" (click)="generarqr()">
+  <ion-button expand="block" class="custom-button" style="margin: 10px auto;" (click)="generarqr()">
     Generar QR
   </ion-button>
 
-
   <h2 class="ion-text-center" style="margin-top: 20px; font-size: 18px;">Asistencia de Alumnos</h2>
-
 
   <ion-grid>
     <ion-row class="ion-text-center" style="font-weight: bold;">
@@ -23,22 +21,23 @@
       <ion-col size="3">Fecha</ion-col>
     </ion-row>
 
-
-    <ion-row *ngFor="let alumno of alumnos; let i = index">
-      <ion-col size="4">{{ alumno.nombre }}</ion-col>
+    <ion-row *ngFor="let item of asistencia">
+      <ion-col size="4">{{ item.alumno.nombre }} {{ item.alumno.apellido }}</ion-col>
       <ion-col size="3">
-        <ion-checkbox [(ngModel)]="alumno.presente"></ion-checkbox>
+        <ion-checkbox [(ngModel)]="item.presente"></ion-checkbox>
       </ion-col>
       <ion-col size="3">
-        <ion-input type="text" [value]="alumno.fecha" readonly></ion-input>
+        <ion-input type="text" [value]="item.fecha" readonly></ion-input>
       </ion-col>
     </ion-row>
 
   </ion-grid>
 
-
   <ion-button expand="block" class="custom-button" style="margin-top: 20px;" (click)="confirmarAsistencia()">
     Confirmar Asistencia
   </ion-button>
 
+  <ion-button expand="block" color="medium" style="margin-top: 20px;" (click)="volver()">
+    Volver
+  </ion-button>
 </ion-content>

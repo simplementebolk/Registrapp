@@ -1,33 +1,24 @@
 import { Injectable } from '@angular/core';
-import { Firestore, collection, addDoc, collectionData, doc, deleteDoc, updateDoc } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Asistencia } from '../model/Asistencia';  
 import { Observable } from 'rxjs';
-import { Asistencia } from '../model/Asistencia';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CrudAsistenciaService {
+export class AsistenciaService {
 
-  private asistenciaCollection = collection(this.firestore, 'asistencias');
+  constructor(private afs: AngularFirestore) { }
 
-  constructor(private firestore: Firestore) {}
+  obtenerAsistenciasPorCursoYAlumno(cursoId: string, alumnoId: string): Observable<Asistencia[]> {
+    return this.afs.collection<Asistencia>('asistencias', ref => 
+      ref.where('materiaId', '==', cursoId)
+         .where('alumnoId', '==', alumnoId)
+         .orderBy('fecha', 'desc') 
+    ).valueChanges();
+  }
 
   registrarAsistencia(asistencia: Asistencia): Promise<void> {
-    return addDoc(this.asistenciaCollection, asistencia).then(() => {});
-  }
-  
-
-  listarAsistencias(): Observable<Asistencia[]> {
-    return collectionData(this.asistenciaCollection, { idField: 'id' }) as Observable<Asistencia[]>;
-  }
-
-  eliminarAsistencia(id: string): Promise<void> {
-    const asistenciaDoc = doc(this.firestore, `asistencias/${id}`);
-    return deleteDoc(asistenciaDoc);
-  }
-
-  modificarAsistencia(asistencia: Asistencia): Promise<void> {
-    const asistenciaDoc = doc(this.firestore, `asistencias/${asistencia.id}`);
-    return updateDoc(asistenciaDoc, { ...asistencia });
+    return this.afs.collection('asistencias').doc(asistencia.id).set(asistencia);
   }
 }

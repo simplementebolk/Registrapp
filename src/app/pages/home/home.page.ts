@@ -8,13 +8,16 @@ import { NavController, MenuController } from '@ionic/angular';
 })
 export class HomePage {
 
-  usuario: string = '';
+  nombre: string = '';
+  apellido: string = '';
 
   constructor(private navCtrl: NavController, private menu: MenuController) {}
 
   ngOnInit(): void {
-    var x = localStorage.getItem("usuario");
-    this.usuario = x ?? '';
+    var x = localStorage.getItem("nombre");
+    var y = localStorage.getItem("apellido");
+    this.nombre = x ?? '';
+    this.apellido = y ?? '';
   }
 
   

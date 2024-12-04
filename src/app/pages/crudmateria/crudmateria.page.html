@@ -16,16 +16,23 @@
         <ion-input [(ngModel)]="nuevaMateria.nombre" placeholder="Ingrese el nombre de la materia"></ion-input>
       </ion-item>
 
+      <ion-item>
+        <ion-label>Profesor</ion-label>
+        <ion-select [(ngModel)]="profesorSeleccionado" placeholder="Selecciona un Profesor">
+          <ion-select-option *ngFor="let profesor of profesores" [value]="profesor">
+            {{ profesor.nombre }} {{ profesor.apellido }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
       <ion-button expand="full" (click)="crearMateria()">Crear Materia</ion-button>
     </ion-card-content>
   </ion-card>
 
-
   <ion-list>
     <ion-item *ngFor="let materia of materias">
-      <ion-label>{{ materia.nombre }}</ion-label>
+      <ion-label>{{ materia.nombre }} - {{ materia.profesor.nombre }} {{ materia.profesor.apellido }}</ion-label>
       <ion-button color="danger" (click)="eliminarMateria(materia.id)">Eliminar</ion-button>
-  
 
       <ion-list>
         <ion-item *ngFor="let alumno of materia.alumnos">

@@ -1,15 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
-// Definimos las interfaces de Curso y Alumno
-interface Curso {
-  nombre: string;
-  descripcion: string;
-}
-
-interface Alumno {
-  nombre: string;
-  cursos: Curso[];
-}
+import { MateriaService } from 'src/app/servicios/materia.service';
+import { Materia } from 'src/app/model/Materia';
 
 @Component({
   selector: 'app-cursos',
@@ -18,28 +9,31 @@ interface Alumno {
 })
 export class CursosPage implements OnInit {
 
-  todosLosCursos: Curso[] = [
-    { nombre: 'Calidad de Software', descripcion: 'Curso sobre principios de calidad en el desarrollo de software.' },
-    { nombre: 'Aplicaciones Móviles', descripcion: 'Curso sobre desarrollo de aplicaciones móviles para diferentes plataformas.' },
-    { nombre: 'Arquitectura de Software', descripcion: 'Curso sobre diseño y arquitectura de sistemas de software.' },
-    { nombre: 'Inglés Intermedio', descripcion: 'Curso de inglés para niveles intermedios con enfoque en habilidades comunicativas.' },
-    { nombre: 'Estadística Descriptiva', descripcion: 'Curso sobre técnicas y métodos para el análisis descriptivo de datos.' }
-  ];
+  isModalOpen = false;
+  cursoSeleccionado: Materia | null = null;
+  cursos: Materia[] = [];
 
-  alumno: Alumno = {
-    nombre: 'Juan Pérez',
-    cursos: [
-      { nombre: 'Calidad de Software', descripcion: 'Curso sobre principios de calidad en el desarrollo de software.' },
-      { nombre: 'Estadística Descriptiva', descripcion: 'Curso sobre técnicas y métodos para el análisis descriptivo de datos.' }
-    ]
-  };
-
-  cursosInscritos: Curso[] = [];
-
-  constructor() { }
+  constructor(private materiaService: MateriaService) { }
 
   ngOnInit() {
-    this.cursosInscritos = this.alumno.cursos;
+    const alumnoId = localStorage.getItem('usuarioId'); 
+    if (alumnoId) {
+      this.listarCursosDelAlumno(alumnoId); 
+    }
   }
 
+  listarCursosDelAlumno(alumnoId: string) {
+    this.materiaService.obtenerCursosDelAlumno(alumnoId).subscribe((materias: Materia[]) => {
+      this.cursos = materias; 
+    });
+  }
+
+  verDetallesCurso(curso: Materia) {
+    this.cursoSeleccionado = curso;
+    this.isModalOpen = true;
+  }
+
+  cerrarModal() {
+    this.isModalOpen = false;
+  }
 }

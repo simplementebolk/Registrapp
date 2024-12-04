@@ -32,9 +32,9 @@ const routes: Routes = [
     loadChildren: () => import('./pages/profesor/asistencia/asistencia.module').then( m => m.AsistenciaPageModule)
   },
   {
-    path: 'generarqr',
-    loadChildren: () => import('./pages/profesor/generarqr/generarqr.module').then( m => m.GenerarqrPageModule)
-  },
+    path: 'generarqr/:cursoId',
+    loadChildren: () => import('./pages/profesor/generarqr/generarqr.module').then(m => m.GenerarqrPageModule)
+  },  
   {
     path: 'notfound',
     loadChildren: () => import('./pages/notfound/notfound.module').then( m => m.NotfoundPageModule)
@@ -80,12 +80,12 @@ const routes: Routes = [
     loadChildren: () => import('./pages/crudpersona/crudpersona.module').then( m => m.CrudpersonaPageModule)
   },
   {
-    path: 'crudasistencia',
-    loadChildren: () => import('./pages/crudasistencia/crudasistencia.module').then(m => m.CrudasistenciaPageModule)
-  },
-  {
     path: 'crudmateria',
     loadChildren: () => import('./pages/crudmateria/crudmateria.module').then(m => m.CrudmateriaPageModule)
+  },
+  {
+    path: 'crudprofesor',
+    loadChildren: () => import('./pages/crudprofesor/crudprofesor.module').then( m => m.CrudprofesorPageModule)
   },
   {
     path: '**',

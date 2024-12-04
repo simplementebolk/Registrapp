@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';  
 import { NavController } from '@ionic/angular';
 
 @Component({
@@ -8,35 +9,26 @@ import { NavController } from '@ionic/angular';
 })
 export class GenerarqrPage implements OnInit {
 
-  tiempoRestante: number = 10;
-  timerInterval: any; 
-  qrGenerado: boolean = false; 
+  cursoId: string = '';  
+  qrValue: string = '';
+  cursoNombre: string = '';  
 
-  constructor(private navCtrl: NavController) { }
+  constructor(
+    private activatedRoute: ActivatedRoute, 
+    private navCtrl: NavController
+  ) { }
 
   ngOnInit() {
-    this.iniciarTemporizador();
+    this.cursoId = this.activatedRoute.snapshot.paramMap.get('cursoId') || '';  
+
+    this.cursoNombre = this.activatedRoute.snapshot.paramMap.get('cursoNombre') || '';
+    this.qrValue = `Curso ID: ${this.cursoId}`;
+
+    console.log('Curso ID:', this.cursoId);
+    console.log('Curso Nombre:', this.cursoNombre);
   }
 
-  iniciarTemporizador() {
-    this.qrGenerado = true;
-    this.timerInterval = setInterval(() => {
-      if (this.tiempoRestante > 0) {
-        this.tiempoRestante--;
-      } else {
-        clearInterval(this.timerInterval);
-        this.qrGenerado = false;
-        this.redirigirAlHomeProfesor();
-      }
-    }, 1000);
-  }
-
-  redirigirAlHomeProfesor() {
-    this.navCtrl.navigateForward('/homeprofesor'); 
-  }
-
-  cancelar() {
-    clearInterval(this.timerInterval); 
-    this.navCtrl.navigateForward(['/homeprofesor']); 
+  volver() {
+    this.navCtrl.navigateBack('/asistencia'); 
   }
 }

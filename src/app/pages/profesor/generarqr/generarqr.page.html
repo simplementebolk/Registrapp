@@ -1,24 +1,15 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title class="ion-text-center" style="font-size: 24px;">
-      <span style="color: black;">registr</span><span style="color: #FFD700;">APP</span> - Generar QR
-    </ion-title>
+    <ion-title>Generar QR</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-
-  <div class="qr-container">
-    <qr-code value="pepito333" 
-         size="300" 
-         errorCorrectionLevel="M" />
+<ion-content>
+  <div class="ion-text-center">
+    <h2>Curso: {{ cursoNombre }}</h2> <!-- Mostrar el nombre del curso -->
+    <h3>ID del Curso: {{ cursoId }}</h3> <!-- Mostrar el ID del curso (opcional) -->
+    <qr-code [value]="qrValue" size="300" errorCorrectionLevel="M"></qr-code>
   </div>
 
-  <div class="timer-container" *ngIf="qrGenerado">
-    <ion-label id="timer" class="timer-text">
-      Disponible por {{ tiempoRestante }} segundos
-    </ion-label>
-  </div>
-
-  <ion-button expand="full" (click)="cancelar()" class="custom-button">Cancelar</ion-button>
+  <ion-button expand="block" (click)="volver()">Volver</ion-button>
 </ion-content>

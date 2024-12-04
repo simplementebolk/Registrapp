@@ -32,7 +32,11 @@ export class LoginPage implements OnInit {
       const userDoc = this.firestore.collection<Persona>('users').doc(userCredential.user?.uid);
       userDoc.valueChanges().subscribe((user) => {
         if (user) {
-          localStorage.setItem('usuario', user.nombre);
+          localStorage.setItem('usuarioId', userCredential.user?.uid ?? '');
+          localStorage.setItem('nombre', user.nombre);
+          localStorage.setItem('apellido', user.apellido);
+          localStorage.setItem('tipo_usuario', user.tipo_usuario);
+  
           if (user.tipo_usuario === 'profesor') {
             this.router.navigate(['/homeprofesor']);
           } else if (user.tipo_usuario === 'alumno') {

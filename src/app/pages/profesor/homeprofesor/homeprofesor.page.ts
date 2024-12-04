@@ -8,13 +8,17 @@ import { NavController } from '@ionic/angular';
 })
 export class HomeprofesorPage implements OnInit {
 
-  usuario: string = "";
+  nombre: string = "";
+  apellido: string = "";
+
 
   constructor(private navCtrl: NavController) { }
 
   ngOnInit(): void {
-    const x = localStorage.getItem("usuario");
-    this.usuario = x ?? '';
+    const x = localStorage.getItem("nombre");
+    const y = localStorage.getItem("apellido");
+    this.nombre = x ?? '';
+    this.apellido = y ?? '';
   }
 
   generarqr() {

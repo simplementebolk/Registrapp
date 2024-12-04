@@ -1,18 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+
 import { IonicModule } from '@ionic/angular';
 
-import { CrudasistenciaPageRoutingModule } from './crudasistencia-routing.module';
-import { CrudasistenciaPage } from './crudasistencia.page';
+import { CrudprofesorPageRoutingModule } from './crudprofesor-routing.module';
+
+import { CrudprofesorPage } from './crudprofesor.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CrudasistenciaPageRoutingModule,
+    CrudprofesorPageRoutingModule
   ],
-  declarations: [CrudasistenciaPage],
+  declarations: [CrudprofesorPage]
 })
-export class CrudasistenciaPageModule {}
+export class CrudprofesorPageModule {}

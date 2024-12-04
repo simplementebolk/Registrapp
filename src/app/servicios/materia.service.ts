@@ -4,6 +4,9 @@ import { Materia } from '../model/Materia';
 import { Alumno } from '../model/Alumno';
 import { Profesor } from '../model/Profesor';
 import { arrayUnion, arrayRemove, FieldValue } from 'firebase/firestore';
+import { Observable } from 'rxjs';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -47,7 +50,13 @@ export class MateriaService {
   }
   
   obtenerCursosDelAlumno(alumnoId: string) {
-    return this.afs.collection('materias', ref => ref.where('alumnos', 'array-contains', alumnoId)).valueChanges();
+    return this.afs.collection<Materia>('materias', ref => ref.where('alumnos', 'array-contains', alumnoId)).valueChanges({ idField: 'id' }) as Observable<Materia[]>;
+  }  
+  
+  obtenerAlumnosPorMateria(cursoId: string): Observable<Alumno[]> {
+    return this.afs.collection('materias').doc(cursoId)
+      .collection('alumnos') // Suponiendo que los alumnos están en una subcolección "alumnos" dentro de la materia
+      .valueChanges() as Observable<Alumno[]>;
   }
 
 }

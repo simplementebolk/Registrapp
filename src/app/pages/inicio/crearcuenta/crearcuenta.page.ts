@@ -3,6 +3,8 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AlertController } from '@ionic/angular';
 import { Persona } from 'src/app/model/Persona';
+import { Alumno } from 'src/app/model/Alumno';
+import { Profesor } from 'src/app/model/Profesor';
 
 @Component({
   selector: 'app-crearcuenta',
@@ -25,7 +27,6 @@ export class CrearcuentaPage {
 
   async registerUser() {
     try {
-
       const userCredential = await this.afAuth.createUserWithEmailAndPassword(this.email, this.password);
       const uid = userCredential.user?.uid;
 
@@ -38,6 +39,22 @@ export class CrearcuentaPage {
       };
 
       await this.firestore.collection('users').doc(uid).set(userData);
+
+      if (this.tipo_usuario === 'profesor') {
+        const profesorData: Profesor = {
+          ...userData,
+          tipo_usuario: 'profesor',
+          materias: []
+        };
+        await this.firestore.collection('profesores').doc(uid).set(profesorData);
+      } else if (this.tipo_usuario === 'alumno') {
+        const alumnoData: Alumno = {
+          ...userData,
+          tipo_usuario: 'alumno',
+          materias: []
+        };
+        await this.firestore.collection('alumnos').doc(uid).set(alumnoData);
+      }
 
       this.presentAlert('Registro exitoso', 'Usuario creado correctamente.');
     } catch (error) {

@@ -25,7 +25,7 @@
 
 <ion-content id="main-content" class="ion-padding">
   <div class="welcome-message">
-    Bienvenido <strong>{{ usuario }}</strong>
+    Bienvenido <strong>{{ nombre }} {{ apellido }}</strong>
   </div>
 
   <ion-grid>
@@ -59,20 +59,20 @@
         </ion-button>
       </ion-col>
     </ion-row>
-
-    <ion-row class="spaced-row">
-      <ion-col size="12" class="ion-text-center">
-        <ion-button expand="block" class="custom-button" style="max-width: 200px; margin: auto;" (click)="generarqr()">
-          Generar QR
-        </ion-button>
-      </ion-col>
-    </ion-row>
   </ion-grid>
   
   <ion-row class="spaced-row">
     <ion-col size="12" class="ion-text-center">
       <ion-button expand="block" class="custom-button" style="max-width: 200px; margin: auto;" routerLink="/crudmateria">
         CRUD Materias
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="spaced-row">
+    <ion-col size="12" class="ion-text-center">
+      <ion-button expand="block" class="custom-button" style="max-width: 200px; margin: auto;" routerLink="/crudprofesor">
+        CRUD Profesores
       </ion-button>
     </ion-col>
   </ion-row>

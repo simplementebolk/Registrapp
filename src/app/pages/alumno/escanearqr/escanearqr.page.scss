@@ -1,4 +1,37 @@
 ion-content {
-    --background: linear-gradient(to bottom, #4015db, #ffffff);
+  --background: linear-gradient(to bottom, #4015db, #ffffff);
+}
+
+.scanner-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  ion-button {
+    margin: 10px;
   }
-  
+}
+
+ion-header {
+  --padding-top: 0;
+  --padding-bottom: 0;
+}
+
+ion-title {
+  text-align: center;
+  font-weight: bold;
+}
+
+ion-title span {
+  font-size: 24px;
+}
+
+ion-title ion-title {
+  font-size: 18px;
+}
+.ion-text-center {
+  --background: transparent; 
+  --box-shadow: none; 
+  --border: none; 
+}

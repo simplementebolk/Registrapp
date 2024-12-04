@@ -22,7 +22,7 @@ ion-header {
     justify-content: center;
     align-items: center;
     height: 100%;
-    background: linear-gradient(to bottom, #4015db, #ffffff0c); /* Fondo con gradiente */
+    background: linear-gradient(to bottom, #4015db, #ffffff0c); 
   }
   
 
@@ -152,5 +152,8 @@ ion-header {
     border: none;
     text-decoration: none;
     --background-color: none;
+  }
+  ion-content {
+    --background: linear-gradient(to bottom, #4015db, #ffffff);
   }
   
